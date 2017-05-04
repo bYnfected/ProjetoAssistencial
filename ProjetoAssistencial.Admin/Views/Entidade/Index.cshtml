@@ -3,6 +3,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    <p>OLA ENTIDADE</p>
-</div>
+    <div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Liberado</th>
+            </tr>
+            @foreach (var entidade in ViewBag.Entidades)
+            {
+                <tr>
+                    <td>@entidade.Id</td>
+                    <td>@entidade.Nome</td>
+                    <td>@entidade.Liberado</td>
+                </tr>
+            }
+        </table>
+    </div>

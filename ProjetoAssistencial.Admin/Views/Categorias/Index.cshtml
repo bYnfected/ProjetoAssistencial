@@ -3,6 +3,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="header">
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Cadastrar", "Cadastrar", "Categorias")</li>
+    </ul>
+    <h1 class="text-muted">Categoria</h1>
+</div>
+
 <div>
-    <p>OLA CATEGORIAS</p>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Descrição</th>
+        </tr>
+        @foreach (var categoria in ViewBag.Categorias)
+            {
+            <tr>
+                <td>@categoria.Id</td>
+                <td>@categoria.Descricao</td>
+            </tr>
+        }
+    </table>
 </div>
