@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoAssistencial.Admin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,9 @@ namespace ProjetoAssistencial.Admin.Controllers
         // GET: Entidade
         public ActionResult Index()
         {
+            List<Entidade> entidades = MockFacktory.MockFactory.GerarListaEntidade(10);
+
+            ViewBag.Entidades = entidades;
             return View();
         }
 
