@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoAssistencial.Admin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,9 @@ namespace ProjetoAssistencial.Admin.Controllers
         // GET: Categorias
         public ActionResult Index()
         {
+            List<Categoria> categorias = MockFacktory.MockFactory.GerarListaCategorias(10);
+
+            ViewBag.Categorias = categorias;
             return View();
         }
 
@@ -25,8 +29,9 @@ namespace ProjetoAssistencial.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Modificar()
+        public ActionResult Modificar(Guid Id)
         {
+
             return View();
         }
     }
