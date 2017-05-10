@@ -19,7 +19,7 @@ namespace ProjetoAssistencial.Cliente.MockFactory
                     Id = Guid.NewGuid(),
                     IdEntidade = Guid.NewGuid(),
                     IdCategoria = Guid.NewGuid(),
-                    Voluntarios = new List<Voluntario>,
+                    Voluntarios = new List<Voluntario>(),
                     Descricao = "Descricao da Ação",
                     DataHora = DateTime.Now
             
