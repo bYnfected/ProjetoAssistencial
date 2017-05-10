@@ -18,13 +18,13 @@ namespace ProjetoAssistencial.Cliente.Controllers
         [HttpPost]
         public ActionResult GravarPrimeiroAcessoEntidade(Entidade Entidade)
         {
-            return RedirectToAction("Index", "Default");
+            return RedirectToAction("Index", "Entidade");
         }
 
         [HttpPost]
         public ActionResult GravarPrimeiroAcessoVoluntario(Voluntario Voluntario)
         {
-            return RedirectToAction("Index", "Default");
+            return RedirectToAction("Index", "Voluntario");
         }
 
         
