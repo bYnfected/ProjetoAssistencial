@@ -13,5 +13,21 @@ namespace ProjetoAssistencial.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult Cadastro()
+        {
+
+            return View();
+        }
+
+        public ActionResult Gravar()
+        {
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Modificar()
+        {
+            return View();
+        }
     }
 }

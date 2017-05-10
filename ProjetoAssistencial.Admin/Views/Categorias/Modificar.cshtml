@@ -1,0 +1,15 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/Categorias/Alterar" method="post">
+
+    <input type="hidden" id="id" name="produto.Id" value="@ViewBag.Categorias.Id" />
+
+    <label for="nome">Descrição</label>
+    <input type="text" id="descricao" name="categoria.descricao" value="@ViewBag.Categorias.Descricao" class="form-control" />
+
+    <input type="submit" value="Gravar" class="form-control" />
+
+</form>

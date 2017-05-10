@@ -13,5 +13,10 @@ namespace ProjetoAssistencial.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult Autorizar()
+        {
+            return View("Index");
+        }
     }
 }
