@@ -16,15 +16,38 @@
     <table>
         <tr>
             <th>Entidade</th>
+            <th>Categoria</th>
             <th>Ação</th>
+            <th>Data / Hora</th>
             <th></th>
         </tr>
         @foreach (var acao in ViewBag.Acoes)
             {
             <tr>
                 <td>@acao.IdEntidade</td>
+                <td>@acao.IdCategoria</td>
                 <td>@acao.Acao</td>
+                <td>@acao.DataHora</td>
                 <td>@Html.ActionLink("Aceitar", "Aceitar")</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<h1 class="text-muted">Doações</h1>
+
+<div>
+    <table>
+        <tr>
+            <th>Entidade</th>
+            <th>Doação</th>
+            <th></th>
+        </tr>
+        @foreach (var doacao in ViewBag.Doacoes)
+            {
+            <tr>
+                <td>@doacao.IdVoluntario</td>
+                <td>@doacao.Doacao</td>
             </tr>
         }
     </table>
