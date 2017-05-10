@@ -26,5 +26,17 @@ namespace ProjetoAssistencial.Cliente.Controllers
         {
             return RedirectToAction("Index", "Default");
         }
+
+        
+        public ActionResult PrimeiroAcessoEntidade(Entidade Entidade)
+        {
+            return View();
+        }
+
+        
+        public ActionResult PrimeiroAcessoVoluntario(Voluntario Voluntario)
+        {
+            return View();
+        }
     }
 }

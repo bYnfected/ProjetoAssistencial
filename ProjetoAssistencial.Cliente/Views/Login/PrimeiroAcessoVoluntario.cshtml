@@ -1,15 +1,31 @@
 ﻿
 @{
-    ViewBag.Title = "Primeiro Acesso Voluntário";
+    ViewBag.Title = "Primeiro Acesso Entidade";
 }
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>_Layout</title>
+</head>
 
 <h2>Primeiro Acesso Voluntário</h2>
 
 <form action="/Login/GravarPrimeiroAcessoVoluntario" method="post">
 
-    <label for="nome">Descrição</label>
+    <label for="nome">Nome</label>
     <input type="text" id="nome" name="voluntario.nome" class="form-control" />
 
     <input type="submit" value="Gravar" class="form-control" />
 
 </form>
+
+</body>
+</html>
