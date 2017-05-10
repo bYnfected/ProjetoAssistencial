@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="header">
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Ação", "Acao")</li>
+    </ul>
+    <h1 class="text-muted">Categoria</h1>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <th>Voluntario</th>
+            <th>Doacao</th>
+        </tr>
+        @foreach (var doacao in ViewBag.Doacoes)
+            {
+            <tr>
+                <td>@doacao.IdVoluntario</td>
+                <td>@doacao.Doacao</td>
+                <td>@Html.ActionLink("Aceitar", "Aceitar")</td>
+            </tr>
+        }
+    </table>
+</div>

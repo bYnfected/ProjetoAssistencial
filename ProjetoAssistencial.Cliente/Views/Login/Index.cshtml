@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Login.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Logar no Sistema</h1><br>
+                    <form action="/Login/Autenticar" method="post">
+                        <input type="text" name="user" placeholder="Username">
+                        <input type="password" name="pass" placeholder="Password">
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+
+                        <a href="/Login/PrimeiroAcessoEntidade/">Primeiro acesso entidade</a>
+                        <a href="/Login/PrimeiroAcessoVoluntario/">Primeiro acesso voluntario</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

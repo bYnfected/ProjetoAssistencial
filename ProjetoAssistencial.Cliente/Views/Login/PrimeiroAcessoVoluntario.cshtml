@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Primeiro Acesso Voluntário";
+}
+
+<h2>Primeiro Acesso Voluntário</h2>
+
+<form action="/Login/GravarPrimeiroAcessoVoluntario" method="post">
+
+    <label for="nome">Descrição</label>
+    <input type="text" id="nome" name="voluntario.nome" class="form-control" />
+
+    <input type="submit" value="Gravar" class="form-control" />
+
+</form>
