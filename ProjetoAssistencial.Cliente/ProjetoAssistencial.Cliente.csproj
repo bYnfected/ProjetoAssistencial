@@ -148,6 +148,9 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Entidade\Index.cshtml" />
     <Content Include="Views\Voluntario\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Voluntario\Doar.cshtml" />
+    <Content Include="Views\Entidade\Acao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

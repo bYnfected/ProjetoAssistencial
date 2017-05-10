@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Acao";
+}
+
+<h2>Acao</h2>
+
+<form action="/Entidade/GravarAcao" method="post">
+
+    <label for="nome">Descrição</label>
+
+    <input type="text" id="categoria" name="acao.idcategoria" class="form-control" />
+
+    <input type="text" id="datahora" name="acao.datahora" class="form-control" />
+
+    <input type="text" id="descricao" name="acao.descricao" class="form-control" />
+
+    <input type="submit" value="Gravar" class="form-control" />
+
+</form>

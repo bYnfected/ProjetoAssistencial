@@ -22,5 +22,18 @@ namespace ProjetoAssistencial.Cliente.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult GravarDoacao()
+        {
+            return RedirectToAction("Index", "Voluntario");
+        }
+
+        public ActionResult Doar()
+        {
+            return View("Doar");
+        }
+
+
     }
 }
