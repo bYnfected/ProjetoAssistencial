@@ -128,7 +128,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Acoes.cs" />
+    <Compile Include="MockFactory\MockFactory.cs" />
+    <Compile Include="Models\Acao.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Doacoes.cs" />
     <Compile Include="Models\Entidade.cs" />
