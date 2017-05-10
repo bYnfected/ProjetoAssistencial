@@ -5,12 +5,12 @@ using System.Web;
 
 namespace ProjetoAssistencial.Cliente.Models
 {
-    public class Doacoes
+    public class Doacao
     {
 
         public Guid IdEntidade { get; set; }
         public Guid IdVoluntario { get; set; }
-        public string Doacao { get; set; }
+        public string Descricao { get; set; }
             
     }
 }

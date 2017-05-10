@@ -131,7 +131,7 @@
     <Compile Include="MockFactory\MockFactory.cs" />
     <Compile Include="Models\Acao.cs" />
     <Compile Include="Models\Categoria.cs" />
-    <Compile Include="Models\Doacoes.cs" />
+    <Compile Include="Models\Doacao.cs" />
     <Compile Include="Models\Entidade.cs" />
     <Compile Include="Models\Voluntario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
