@@ -1,0 +1,16 @@
+
+>> Aplicacao
+	Regras de Negócio, trabalha direto com domínio e o repositório
+
+>> Apresentação
+	Interfaces pro usuário
+
+>> CrossCutring
+	Funções Genéricas que todos os projetos utilizam
+
+>> Dominio
+	Entidades, Interfaces
+
+>> Infra
+	Repositório (ADO.NET, NHibernate, Entity)
+		Trata direto com o banco

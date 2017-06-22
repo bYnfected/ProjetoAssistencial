@@ -222,7 +222,9 @@
     <Content Include="startbootstrap-sb-admin-2-gh-pages\vendor\morrisjs\morris.min.js" />
     <Content Include="startbootstrap-sb-admin-2-gh-pages\vendor\raphael\raphael.js" />
     <Content Include="startbootstrap-sb-admin-2-gh-pages\vendor\raphael\raphael.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -314,6 +316,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoAssistencial.Aplicacao\ProjetoAssistencial.Aplicacao.csproj">
+      <Project>{49a998bd-b16e-4b59-86a3-44337adf2994}</Project>
+      <Name>ProjetoAssistencial.Aplicacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoAssistencial.Dominio\ProjetoAssistencial.Dominio.csproj">
+      <Project>{a2ac1e17-a8f9-4fe7-adfa-06d082ded748}</Project>
+      <Name>ProjetoAssistencial.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoAssistencial.Repositorio\ProjetoAssistencial.Repositorio.csproj">
+      <Project>{736ab022-a289-4125-bbc8-8397bf8f31b9}</Project>
+      <Name>ProjetoAssistencial.Repositorio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
