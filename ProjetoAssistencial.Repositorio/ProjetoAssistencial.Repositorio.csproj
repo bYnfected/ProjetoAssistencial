@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcaoVoluntarioRepositorio.cs" />
+    <Compile Include="DoacaoRepositorio.cs" />
     <Compile Include="CategoriaRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

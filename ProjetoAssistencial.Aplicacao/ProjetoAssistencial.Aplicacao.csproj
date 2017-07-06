@@ -41,9 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\AcaoAdapter.cs" />
+    <Compile Include="Adapter\AcaoVoluntarioAdapter.cs" />
     <Compile Include="Adapter\CategoriaAdapter.cs" />
+    <Compile Include="Adapter\DoacaoAdapter.cs" />
+    <Compile Include="Adapter\EntidadeAdapter.cs" />
+    <Compile Include="Adapter\VoluntarioAdapter.cs" />
+    <Compile Include="Adapter\VoluntarioCategoriaAdapter.cs" />
     <Compile Include="CategoriaAplicacao.cs" />
+    <Compile Include="DoacaoAplicacao.cs" />
+    <Compile Include="DTO\AcaoDTO.cs" />
+    <Compile Include="DTO\AcaoVoluntarioDTO.cs" />
+    <Compile Include="DTO\Base.cs" />
     <Compile Include="DTO\CategoriaDTO.cs" />
+    <Compile Include="DTO\DoacaoDTO.cs" />
+    <Compile Include="DTO\EntidadeDTO.cs" />
+    <Compile Include="DTO\VoluntarioCategoriaDTO.cs" />
+    <Compile Include="DTO\VoluntarioDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

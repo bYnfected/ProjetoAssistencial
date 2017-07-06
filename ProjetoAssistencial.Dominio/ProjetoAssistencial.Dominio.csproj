@@ -41,10 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidade\Acao.cs" />
+    <Compile Include="Entidade\AcaoVoluntario.cs" />
     <Compile Include="Entidade\Base.cs" />
     <Compile Include="Entidade\Categoria.cs" />
+    <Compile Include="Entidade\Doacao.cs" />
+    <Compile Include="Entidade\Entidade.cs" />
+    <Compile Include="Entidade\Voluntario.cs" />
+    <Compile Include="Entidade\VoluntarioCategoria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\IAcaoVoluntarioRepositorio.cs" />
     <Compile Include="Repositorio\ICategoriaRepositorio.cs" />
+    <Compile Include="Repositorio\IDoacaoRepositorio.cs" />
+    <Compile Include="Repositorio\IVoluntarioCategoria.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

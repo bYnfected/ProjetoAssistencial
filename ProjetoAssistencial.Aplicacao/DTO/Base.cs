@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoAssistencial.Utilitarios
+namespace ProjetoAssistencial.Aplicacao.DTO
 {
-    public class Email
+    public class Base
     {
-
-
-
+        public Guid Id { get; set; }
     }
 }

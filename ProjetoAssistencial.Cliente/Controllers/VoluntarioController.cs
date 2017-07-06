@@ -34,6 +34,10 @@ namespace ProjetoAssistencial.Cliente.Controllers
             return View("Doar");
         }
 
+        public ActionResult AceitarAcao()
+        {
+            //return View("Doar");
+        }
 
     }
 }

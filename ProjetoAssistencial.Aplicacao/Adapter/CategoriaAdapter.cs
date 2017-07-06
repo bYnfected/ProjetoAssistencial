@@ -20,7 +20,7 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
             };
         }
 
-        public static CategoriaDTO ParaDto(Categoria categoria)
+        public static CategoriaDTO ParaDTO(Categoria categoria)
         {
             return new CategoriaDTO()
             {
@@ -28,6 +28,29 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
                 Descricao = categoria.Descricao
             };
         }
+
+        public static List<Categoria> ListParaDomain(List<CategoriaDTO> listaCategoriaDTO)
+        {
+            List<Categoria> listaCategoria = new List<Categoria>();
+            foreach (CategoriaDTO cat in listaCategoriaDTO)
+            {
+                listaCategoria.Add(CategoriaAdapter.ParaDomain(cat));   
+            }
+            return listaCategoria;
+        }
+
+        public static List<CategoriaDTO> ListParaDTO(List<Categoria> listaCategoria)
+        {
+            List<CategoriaDTO> listaCategoriaDTO = new List<CategoriaDTO>();
+            foreach (Categoria cat in listaCategoria)
+            {
+                listaCategoriaDTO.Add(CategoriaAdapter.ParaDTO(cat));
+            }
+            return listaCategoriaDTO;
+        }
+
+
+
 
     }
 }

@@ -38,5 +38,10 @@ namespace ProjetoAssistencial.Cliente.Controllers
         {
             return View();
         }
+
+        public ActionResult Autenticar()
+        {
+            return RedirectToAction("Index", "Default");
+        }
     }
 }
