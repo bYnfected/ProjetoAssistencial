@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoAssistencial.Dominio.Entidade
 {
-    class Voluntario : Base
+    public class Voluntario : Base
     {
         public String Nome { get; set; }
 

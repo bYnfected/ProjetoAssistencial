@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoAssistencial.Aplicacao.DTO
 {
-    class AcaoDTO : Base
+    public class AcaoDTO : Base
     {
         public Guid IdEntidade { get; set; }
 

@@ -39,7 +39,7 @@ namespace ProjetoAssistencial.Aplicacao
 
             Categoria categoria = this.categoriaRepositorio.Selecionar(id);
 
-            return CategoriaAdapter.ParaDto(categoria);
+            return CategoriaAdapter.ParaDTO(categoria);
         }
 
 
@@ -50,7 +50,7 @@ namespace ProjetoAssistencial.Aplicacao
 
             foreach (Categoria item in listaCategorias)
             {
-                listaCategoriasDTO.Add(CategoriaAdapter.ParaDto(item));
+                listaCategoriasDTO.Add(CategoriaAdapter.ParaDTO(item));
             }
 
             return listaCategoriasDTO;

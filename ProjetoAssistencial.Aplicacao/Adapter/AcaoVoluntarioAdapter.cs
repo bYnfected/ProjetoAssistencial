@@ -15,8 +15,8 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
         {
             return new AcaoVoluntario()
             {
-                Acao = acaoVoluntario.Acao,
-                Voluntario = acaoVoluntario.Voluntario
+                Acao = AcaoAdapter.ParaDomain(acaoVoluntario.Acao),
+                Voluntario = VoluntarioAdapter.ParaDomain(acaoVoluntario.Voluntario)
             };
         }
 
@@ -24,8 +24,8 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
         {
             return new AcaoVoluntarioDTO()
             {
-                Acao = acaoVoluntario.Acao,
-                Voluntario = acaoVoluntario.Voluntario
+                Acao = AcaoAdapter.ParaDTO(acaoVoluntario.Acao),
+                Voluntario = VoluntarioAdapter.ParaDTO(acaoVoluntario.Voluntario)
             };
         }
 

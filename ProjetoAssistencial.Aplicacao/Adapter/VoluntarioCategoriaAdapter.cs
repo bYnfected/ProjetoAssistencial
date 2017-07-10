@@ -15,8 +15,8 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
         {
             return new VoluntarioCategoria()
             {
-                Categoria = voluntarioCategoria.Categoria,
-                Voluntario = voluntarioCategoria.Voluntario
+                Categoria = CategoriaAdapter.ParaDomain(voluntarioCategoria.Categoria),
+                Voluntario = VoluntarioAdapter.ParaDomain(voluntarioCategoria.Voluntario)
             };
         }
 
@@ -24,8 +24,8 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
         {
             return new VoluntarioCategoriaDTO()
             {
-                Categoria = voluntarioCategoria.Categoria,
-                Voluntario = voluntarioCategoria.Voluntario
+                Categoria = CategoriaAdapter.ParaDTO(voluntarioCategoria.Categoria),
+                Voluntario = VoluntarioAdapter.ParaDTO(voluntarioCategoria.Voluntario)
             };
         }
 

@@ -17,19 +17,19 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
             {
                 Id = doacao.Id,
                 Descricao = doacao.Descricao,
-                Entidade = doacao.Entidade,
-                Categoria = doacao.Categoria
+                Entidade = EntidadeAdapter.ParaDomain(doacao.Entidade),
+                Categoria = CategoriaAdapter.ParaDomain(doacao.Categoria)
             };
         }
 
-        public static DoacaoDTO ParaDto(Doacao doacao)
+        public static DoacaoDTO ParaDTO(Doacao doacao)
         {
             return new DoacaoDTO()
             {
                 Id = doacao.Id,
                 Descricao = doacao.Descricao,
-                Entidade = doacao.Entidade,
-                Categoria = doacao.Categoria
+                Entidade = EntidadeAdapter.ParaDTO(doacao.Entidade),
+                Categoria = CategoriaAdapter.ParaDTO(doacao.Categoria)
             };
         }
 

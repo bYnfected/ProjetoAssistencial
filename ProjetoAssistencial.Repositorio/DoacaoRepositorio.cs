@@ -112,7 +112,7 @@ namespace ProjetoAssistencial.Repositorio
                     }
                 }
             }
-            return categoria.Id;
+            return doacao.Id;
         }
 
         public Doacao Selecionar(Guid id)

@@ -39,7 +39,7 @@ namespace ProjetoAssistencial.Aplicacao
 
             Doacao doacao = this.doacaoRepositorio.Selecionar(id);
 
-            return DoacaoAdapter.ParaDto(doacao);
+            return DoacaoAdapter.ParaDTO(doacao);
         }
 
 
@@ -50,7 +50,7 @@ namespace ProjetoAssistencial.Aplicacao
 
             foreach (Doacao item in listaDoacoes)
             {
-                listaDoacoesDTO.Add(DoacaoAdapter.ParaDto(item));
+                listaDoacoesDTO.Add(DoacaoAdapter.ParaDTO(item));
             }
 
             return listaDoacoesDTO;

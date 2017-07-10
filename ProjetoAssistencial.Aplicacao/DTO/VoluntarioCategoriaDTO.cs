@@ -11,7 +11,7 @@ namespace ProjetoAssistencial.Aplicacao.DTO
 
         public CategoriaDTO Categoria { get; set; }
 
-        public VoluntarioCategoriaDTO Voluntario { get; set; }
+        public VoluntarioDTO Voluntario { get; set; }
 
     }
 }
