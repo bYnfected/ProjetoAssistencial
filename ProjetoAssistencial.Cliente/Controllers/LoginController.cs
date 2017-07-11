@@ -87,6 +87,7 @@ namespace ProjetoAssistencial.Cliente.Controllers
 
             string strconexao = ConfigurationManager.ConnectionStrings["conexao"].ToString();
 
+
             //EntidadeRepositorio repositorio = new EntidadeRepositorio(strconexao);
             //VoluntarioAplicacao aplicacao = new VoluntarioAplicacao();
 

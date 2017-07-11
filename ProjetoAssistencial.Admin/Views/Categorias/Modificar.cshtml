@@ -5,10 +5,10 @@
 
 <form action="/Categorias/Alterar" method="post">
 
-    <input type="hidden" id="id" name="produto.Id" value="@ViewBag.Categorias.Id" />
+    <input type="hidden" id="id" name="categoria.Id" value="@ViewBag.Categoria.Id" />
 
     <label for="nome">Descrição</label>
-    <input type="text" id="descricao" name="categoria.descricao" value="@ViewBag.Categorias.Descricao" class="form-control" />
+    <input type="text" id="descricao" name="categoria.descricao" value="@ViewBag.Categoria.Descricao" class="form-control" />
 
     <input type="submit" value="Gravar" class="form-control" />
 

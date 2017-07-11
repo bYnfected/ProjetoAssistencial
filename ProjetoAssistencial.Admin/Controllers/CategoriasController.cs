@@ -31,19 +31,57 @@ namespace ProjetoAssistencial.Admin.Controllers
 
         public ActionResult Cadastro()
         {
-
             return View();
-        }
-
-        public ActionResult Gravar()
-        {
-            return RedirectToAction("Index");
         }
 
         public ActionResult Modificar(Guid Id)
         {
+            string strconexao = ConfigurationManager.ConnectionStrings["conexao"].ToString();
+
+            ICategoriaRepositorio repositorio = new CategoriaRepositorio(strconexao);
+            CategoriaAplicacao aplicacao = new CategoriaAplicacao(repositorio);
+
+            CategoriaDTO categoria = aplicacao.Procurar(Id);
+
+            ViewBag.Categoria = categoria;
 
             return View();
+        }
+
+        public ActionResult Gravar(Categoria categoria)
+        {
+            string strconexao = ConfigurationManager.ConnectionStrings["conexao"].ToString();
+
+            ICategoriaRepositorio repositorio = new CategoriaRepositorio(strconexao);
+            CategoriaAplicacao aplicacao = new CategoriaAplicacao(repositorio);
+
+            var cat = new CategoriaDTO()
+            {
+                Id = Guid.NewGuid(),
+                Descricao = categoria.Descricao
+            };
+
+            aplicacao.Inserir(cat);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Alterar(Categoria categoria)
+        {
+            string strconexao = ConfigurationManager.ConnectionStrings["conexao"].ToString();
+
+            ICategoriaRepositorio repositorio = new CategoriaRepositorio(strconexao);
+            CategoriaAplicacao aplicacao = new CategoriaAplicacao(repositorio);
+
+            var cat = new CategoriaDTO()
+            {
+                Id = categoria.Id,
+                Descricao = categoria.Descricao
+            };
+
+            aplicacao.Alterar(cat);
+
+            return RedirectToAction("Index");
         }
     }
 }
