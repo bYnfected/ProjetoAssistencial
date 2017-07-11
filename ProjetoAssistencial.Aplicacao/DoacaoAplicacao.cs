@@ -46,7 +46,7 @@ namespace ProjetoAssistencial.Aplicacao
         public List<DoacaoDTO> SelecionarTodos()
         {
             List<Doacao> listaDoacoes = this.doacaoRepositorio.SelecionarTodos();
-            List<DoacaoDTO> listaDoacoesDTO = new List<DTO.DoacaoDTO>();
+            List<DoacaoDTO> listaDoacoesDTO = new List<DoacaoDTO>();
 
             foreach (Doacao item in listaDoacoes)
             {

@@ -35,5 +35,30 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
                 Voluntarios = VoluntarioAdapter.ListParaDTO(acao.Voluntarios)
             };
         }
+
+        public static List<Acao> ListParaDomain (List<AcaoDTO> listAcaoDTO)
+        {
+            List<Acao> listAcao = new List<Acao>();
+
+            foreach (AcaoDTO item in listAcaoDTO)
+            {
+                listAcao.Add(AcaoAdapter.ParaDomain(item));
+            }
+
+            return listAcao;
+        }
+
+        public static List<AcaoDTO> ListParaDTO(List<Acao> listaAcao)
+        {
+            List<AcaoDTO> listAcaoDTO = new List<AcaoDTO>();
+
+            foreach (Acao item in listaAcao)
+            {
+                listAcaoDTO.Add(AcaoAdapter.ParaDTO(item));
+            }
+
+            return listAcaoDTO;
+        }
+
     }
 }

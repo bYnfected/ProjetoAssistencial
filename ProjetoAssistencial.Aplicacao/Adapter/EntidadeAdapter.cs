@@ -22,8 +22,8 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
             };
         }
 
-    public static EntidadeDTO ParaDTO(Entidade entidade)
-    {
+        public static EntidadeDTO ParaDTO(Entidade entidade)
+        {
             return new EntidadeDTO()
             {
                 Id = entidade.Id,
@@ -32,6 +32,30 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
                 Liberado = entidade.Liberado,
                 Categorias = CategoriaAdapter.ListParaDTO(entidade.Categorias)
             };
-    }
+        }
+
+        public static List<Entidade> ListParaDomain(List<EntidadeDTO> listaEntidadeDTO)
+        {
+            List<Entidade> listaEntidade = new List<Entidade>();
+
+            foreach(EntidadeDTO item in listaEntidadeDTO)
+            {
+                listaEntidade.Add(EntidadeAdapter.ParaDomain(item));
+            }
+
+            return listaEntidade;
+        }
+
+        public static List<EntidadeDTO> ListParaDTO(List<Entidade> listaEntidade)
+        {
+            List<EntidadeDTO> listaEntidadeDTO = new List<EntidadeDTO>();
+
+            foreach(Entidade item in listaEntidade)
+            {
+                listaEntidadeDTO.Add(EntidadeAdapter.ParaDTO(item));
+            }
+
+            return listaEntidadeDTO;
+        }
     }
 }

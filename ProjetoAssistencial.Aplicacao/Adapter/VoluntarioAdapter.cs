@@ -37,11 +37,11 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
         {
             List<Voluntario> listaVoluntario = new List<Voluntario>();
 
-                foreach (VoluntarioDTO voluntario in listaVoluntarioDTO)
-                {
-                    listaVoluntario.Add(VoluntarioAdapter.ParaDomain(voluntario));
-                }
-                return listaVoluntario;
+            foreach (VoluntarioDTO voluntario in listaVoluntarioDTO)
+            {
+                listaVoluntario.Add(VoluntarioAdapter.ParaDomain(voluntario));
+            }
+            return listaVoluntario;
         }
 
         public static List<VoluntarioDTO> ListParaDTO(List<Voluntario> listaVoluntario)

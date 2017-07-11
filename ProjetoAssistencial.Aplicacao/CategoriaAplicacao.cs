@@ -45,15 +45,7 @@ namespace ProjetoAssistencial.Aplicacao
 
         public List<CategoriaDTO> SelecionarTodos()
         {
-            List<Categoria> listaCategorias = this.categoriaRepositorio.SelecionarTodos();
-            List<CategoriaDTO> listaCategoriasDTO = new List<DTO.CategoriaDTO>();
-
-            foreach (Categoria item in listaCategorias)
-            {
-                listaCategoriasDTO.Add(CategoriaAdapter.ParaDTO(item));
-            }
-
-            return listaCategoriasDTO;
+            return CategoriaAdapter.ListParaDTO(categoriaRepositorio.SelecionarTodos());
         }
 
         public Guid Alterar(CategoriaDTO categoria)
