@@ -10,13 +10,13 @@ namespace ProjetoAssistencial.Dominio.Repositorio
     public interface IEntidadeRepositorio
     {
 
-        Guid Inserir(Dominio.Entidade.Entidade categoria);
+        Guid Inserir(Entidade.Entidade categoria);
 
-        Guid Alterar(Dominio.Entidade.Entidade categoria);
+        Guid Alterar(Entidade.Entidade categoria);
 
-        Dominio.Entidade.Entidade Selecionar(Guid id);
+        Entidade.Entidade Selecionar(Guid id);
 
-        List<Dominio.Entidade.Entidade> SelecionarTodos();
+        List<Entidade.Entidade> SelecionarTodos();
 
         void Excluir(Guid id);
 
