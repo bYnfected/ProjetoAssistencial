@@ -25,6 +25,7 @@ namespace ProjetoAssistencial.Admin.Controllers
             List<CategoriaDTO> categorias = aplicacao.SelecionarTodos();
 
             ViewBag.Categorias = categorias;
+
             return View();
         }
 

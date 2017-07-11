@@ -17,8 +17,8 @@
                     <td>@entidade.Id</td>
                     <td>@entidade.Nome</td>
                     <td>@entidade.Liberado</td>
-                    <td>@Html.ActionLink("Autorizar", "Autorizar")</td>
+                    <td><a href="/Entidade/Liberar/@entidade.Id">Liberar</a>|<a href="/Entidade/Proibir/@entidade.Id">Proibir</a>  </td>
                 </tr>
             }
         </table>
-    </div>
+    </div>  

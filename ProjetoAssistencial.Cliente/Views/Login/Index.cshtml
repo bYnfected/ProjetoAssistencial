@@ -17,14 +17,26 @@
             <div class="modal-dialog">
                 <div class="loginmodal-container">
                     <h1>Logar no Sistema</h1><br>
+
                     <form action="/Login/Autenticar" method="post">
-                        <input type="text" name="user" placeholder="Username">
-                        <input type="password" name="pass" placeholder="Password">
+
+                        <input type="text" name="usuario" placeholder="Usuário">
+
+                        <input type="password" name="senha" placeholder="Senha">
+
+                        <br />
+                        <br />
+                        <input type="radio" name="tipo" value="voluntario">Sou Voluntário<br />
+                        <input type="radio" name="tipo" value="entidade">Sou Entidade<br />
+                        <br />
+
                         <input type="submit" name="login" class="login loginmodal-submit" value="Login">
 
                         <a href="/Login/PrimeiroAcessoEntidade/">Primeiro acesso entidade</a>
                         <a href="/Login/PrimeiroAcessoVoluntario/">Primeiro acesso voluntario</a>
+
                     </form>
+
                 </div>
             </div>
         </div>

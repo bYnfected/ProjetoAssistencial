@@ -10,6 +10,7 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
@@ -18,14 +19,24 @@
 
 <h2>Primeiro Acesso Entidade</h2>
 
-<form action="/Login/GravarPrimeiroAcessoEntidade" method="post">
+    <body>
 
-    <label for="nome">Descrição</label>
-    <input type="text" id="nome" name="entidade.nome" class="form-control" />
+        <form action="/Login/GravarPrimeiroAcessoEntidade" method="post">
 
-    <input type="submit" value="Gravar" class="form-control" />
+            <label for="nome">Descrição</label>
 
-</form>
+            <input type="text" id="nome" name="entidade.nome" class="form-control" />
 
-</body>
+            <input type="text" id="cidade" name="entidade.cidade" class="form-control" />
+
+            <input type="text" id="usuario" name="entidade.usuario" class="form-control" />
+
+            <input type="text" id="senha" name="entidade.senha" class="form-control" />
+
+            <input type="submit" value="Gravar" class="form-control" />
+
+        </form>
+
+    </body>
+
 </html>

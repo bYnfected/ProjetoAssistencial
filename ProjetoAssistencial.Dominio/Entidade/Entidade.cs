@@ -15,5 +15,10 @@ namespace ProjetoAssistencial.Dominio.Entidade
         public Boolean Liberado { get; set; }
 
         public List<Categoria> Categorias { get; set; }
+
+        public string Usuario { get; set; }
+
+        public string Senha { get; set; }
+
     }
 }

@@ -307,6 +307,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Categorias\Cadastro.cshtml" />
     <Content Include="Views\Categorias\Modificar.cshtml" />
+    <Content Include="Views\Login\ErroLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

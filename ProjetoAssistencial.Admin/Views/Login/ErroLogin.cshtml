@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "ErroLogin";
+}
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Erro</title>
+</head>
+
+<body>
+
+    <center>
+        <h2 style="color:red">ERRO: USUÁRIO NÃO AUTENTICADO, VERIFIQUE USUÁRIO E SENHA E TENTE NOVAMENTE</h2>
+        <br />
+        <br />
+        @Html.ActionLink("Voltar e tentar novamente", "Index", "Login")
+    </center>
+
+</body>
+</html>

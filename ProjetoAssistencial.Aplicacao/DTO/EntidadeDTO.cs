@@ -15,5 +15,9 @@ namespace ProjetoAssistencial.Aplicacao.DTO
         public Boolean Liberado { get; set; }
 
         public List<CategoriaDTO> Categorias { get; set; }
+
+        public string Usuario { get; set; }
+
+        public string Senha { get; set; }
     }
 }

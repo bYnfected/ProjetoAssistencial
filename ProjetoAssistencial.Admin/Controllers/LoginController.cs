@@ -14,9 +14,18 @@ namespace ProjetoAssistencial.Admin.Controllers
             return View();
         }
 
-        public ActionResult Autenticar()
+        public ActionResult Autenticar(string usuario, string senha)
         {
-            return RedirectToAction("Index", "Default");
+            if (usuario.ToUpper() == "ADMIN" && senha.ToUpper() == "123456")
+                return RedirectToAction("Index", "Default");
+            else
+                return RedirectToAction("ErroLogin", "Login");
         }
+
+        public ActionResult ErroLogin()
+        {
+            return View();
+        }
+
     }
 }

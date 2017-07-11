@@ -151,6 +151,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Voluntario\Doar.cshtml" />
     <Content Include="Views\Entidade\Acao.cshtml" />
+    <Content Include="Views\Login\ErroLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -160,6 +161,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoAssistencial.Aplicacao\ProjetoAssistencial.Aplicacao.csproj">
+      <Project>{49a998bd-b16e-4b59-86a3-44337adf2994}</Project>
+      <Name>ProjetoAssistencial.Aplicacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoAssistencial.Dominio\ProjetoAssistencial.Dominio.csproj">
+      <Project>{a2ac1e17-a8f9-4fe7-adfa-06d082ded748}</Project>
+      <Name>ProjetoAssistencial.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoAssistencial.Repositorio\ProjetoAssistencial.Repositorio.csproj">
+      <Project>{736ab022-a289-4125-bbc8-8397bf8f31b9}</Project>
+      <Name>ProjetoAssistencial.Repositorio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
