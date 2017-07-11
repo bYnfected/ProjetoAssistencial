@@ -28,20 +28,20 @@ namespace ProjetoAssistencial.Cliente.MockFactory
             return acoes;
         }
 
-        public static List<Doacao> GerarListaDoacoes(int qtd)
-        {
-            List<Doacao> doacoes = new List<Doacao>();
+        //public static List<Doacao> GerarListaDoacoes(int qtd)
+        //{
+        //    List<Doacao> doacoes = new List<Doacao>();
 
-            for(int i = 0; i< qtd; i++)
-            {
-                doacoes.Add(new Doacao()
-                {
-                    IdVoluntario = Guid.NewGuid(),
-                    IdEntidade = Guid.NewGuid(),
-                    Descricao = "Descricao doacao"
-                });
-            }
-                return doacoes;
-        }
+        //    for(int i = 0; i< qtd; i++)
+        //    {
+        //        doacoes.Add(new Doacao()
+        //        {
+        //            IdVoluntario = Guid.NewGuid(),
+        //            IdEntidade = Guid.NewGuid(),
+        //            Descricao = "Descricao doacao"
+        //        });
+        //    }
+        //        return doacoes;
+        //}
     }
 }

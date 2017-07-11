@@ -18,7 +18,8 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
                 Id = doacao.Id,
                 Descricao = doacao.Descricao,
                 Entidade = EntidadeAdapter.ParaDomain(doacao.Entidade),
-                Categoria = CategoriaAdapter.ParaDomain(doacao.Categoria)
+                Categoria = CategoriaAdapter.ParaDomain(doacao.Categoria),
+                Voluntario = VoluntarioAdapter.ParaDomain(doacao.Voluntario)
             };
         }
 
@@ -29,7 +30,8 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
                 Id = doacao.Id,
                 Descricao = doacao.Descricao,
                 Entidade = EntidadeAdapter.ParaDTO(doacao.Entidade),
-                Categoria = CategoriaAdapter.ParaDTO(doacao.Categoria)
+                Categoria = CategoriaAdapter.ParaDTO(doacao.Categoria),
+                Voluntario = VoluntarioAdapter.ParaDTO(doacao.Voluntario)
             };
         }
 

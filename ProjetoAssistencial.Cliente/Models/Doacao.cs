@@ -7,9 +7,13 @@ namespace ProjetoAssistencial.Cliente.Models
 {
     public class Doacao
     {
+
         public Guid Id { get; set; }
-        public Guid IdEntidade { get; set; }
-        public Guid IdVoluntario { get; set; }
+
+        public Entidade Entidade { get; set; }
+
+        public Categoria Categoria { get; set; }
+
         public string Descricao { get; set; }
             
     }

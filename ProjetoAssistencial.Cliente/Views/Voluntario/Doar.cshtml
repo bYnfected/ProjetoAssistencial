@@ -11,6 +11,15 @@
 
     <input type="text" id="descricao" name="doacao.descricao" class="form-control" />
 
+    <label for="categoria">Categoria</label>
+    <select id="categoria" name="CategoriaId" class="form-control">
+        @foreach (var categoria in ViewBag.Categorias)
+        {
+            <option value=@categoria.Id>@categoria.Descricao</option>
+        }
+
+    </select>
+
     <input type="submit" value="Doar" class="form-control" />
 
 </form>

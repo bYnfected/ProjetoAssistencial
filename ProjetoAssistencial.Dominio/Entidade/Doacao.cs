@@ -12,6 +12,7 @@ namespace ProjetoAssistencial.Dominio.Entidade
         public string Descricao { get; set; }
         public Entidade Entidade { get; set; }
         public Categoria Categoria { get; set; }
+        public Voluntario Voluntario { get; set; }
 
         public Doacao()
         {

@@ -32,11 +32,12 @@ namespace ProjetoAssistencial.Repositorio
 
                         comando.Transaction = trans;
 
-                        comando.CommandText = "UPDATE Doacao SET Descricao = @Descricao, IdCategoria = @IdCategoria WHERE Id = @Id ";
+                        comando.CommandText = "UPDATE Doacao SET Descricao = @Descricao, IdCategoria = @IdCategoria, IdVoluntario = @IdVoluntario WHERE Id = @Id ";
 
                         comando.Parameters.AddWithValue("Id", doacao.Id);
                         comando.Parameters.AddWithValue("Descricao", doacao.Descricao);
                         comando.Parameters.AddWithValue("IdCategoria", doacao.Categoria.Id);
+                        comando.Parameters.AddWithValue("IdVoluntario", doacao.Voluntario.Id);
 
                         comando.ExecuteNonQuery();
 
@@ -96,11 +97,12 @@ namespace ProjetoAssistencial.Repositorio
                         comando.Connection = conexao;
                         comando.Transaction = trans;
 
-                        comando.CommandText = "INSERT INTO Doacao (Id, Descricao, IdCategoria) VALUES(@Id, @Descricao, @IdCategoria)";
+                        comando.CommandText = "INSERT INTO Doacao (Id, Descricao, IdCategoria, IdVoluntario) VALUES(@Id, @Descricao, @IdCategoria, @IdVoluntario)";
 
                         comando.Parameters.AddWithValue("Id", doacao.Id);
                         comando.Parameters.AddWithValue("Descricao", doacao.Descricao);
                         comando.Parameters.AddWithValue("IdCategoria", doacao.Categoria.Id);
+                        comando.Parameters.AddWithValue("IdVoluntario", doacao.Voluntario.Id);
 
                         comando.ExecuteNonQuery();
 
@@ -140,7 +142,8 @@ namespace ProjetoAssistencial.Repositorio
                         Id = Guid.Parse(leitor["Id"].ToString()),
                         Descricao = leitor["Descricao"].ToString(),
                         Categoria = (new CategoriaRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdCategoria"].ToString()))),
-                        Entidade = (new EntidadeRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdEntidade"].ToString())))
+                        Entidade = (new EntidadeRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdEntidade"].ToString()))),
+                        Voluntario = (new VoluntarioRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdVoluntario"].ToString())))
                     };
                 }
             }
@@ -170,7 +173,8 @@ namespace ProjetoAssistencial.Repositorio
                         Id = Guid.Parse(leitor["Id"].ToString()),
                         Descricao = leitor["Descricao"].ToString(),
                         Categoria = (new CategoriaRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdCategoria"].ToString()))),
-                        Entidade = (new EntidadeRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdEntidade"].ToString())))
+                        Entidade = (new EntidadeRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdEntidade"].ToString()))),
+                        Voluntario = (new VoluntarioRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdVoluntario"].ToString())))
                     };
 
                     listaDoacoes.Add(doacao);

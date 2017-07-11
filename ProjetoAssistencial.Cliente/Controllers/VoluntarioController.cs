@@ -21,35 +21,53 @@ namespace ProjetoAssistencial.Cliente.Controllers
 
             ViewBag.Acoes = Acoes;
 
-            List<Doacao> Doacoes = MockFactory.MockFactory.GerarListaDoacoes(10);
+
+            ////////////////////////////
+
+
+            string strconexao = ConfigurationManager.ConnectionStrings["conexao"].ToString();
+
+            IDoacaoRepositorio repositorio = new DoacaoRepositorio(strconexao);
+            DoacaoAplicacao aplicacao = new DoacaoAplicacao(repositorio);
+
+            List<DoacaoDTO> Doacoes = aplicacao.SelecionarTodos();
 
             ViewBag.Doacoes = Doacoes;
 
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult GravarDoacao(Doacao Doacao)
-        //{
-        //    string strconexao = ConfigurationManager.ConnectionStrings["conexao"].ToString();
+        [HttpPost]
+        public ActionResult GravarDoacao(Doacao Doacao)
+        {
+            string strconexao = ConfigurationManager.ConnectionStrings["conexao"].ToString();
 
-        //    IDoacaoRepositorio repositorio = new DoacaoRepositorio(strconexao);
-        //    DoacaoAplicacao aplicacao = new DoacaoAplicacao(repositorio);
+            IDoacaoRepositorio repositorio = new DoacaoRepositorio(strconexao);
+            DoacaoAplicacao aplicacao = new DoacaoAplicacao(repositorio);
 
-        //    var daocao = new DoacaoDTO()
-        //    {
-        //        Id = Doacao.Id,
-        //        Voluntario = Entidade.Cidade,
-        //        Descricao = Doacao.Descricao
-        //    };
+            var doacao = new DoacaoDTO()
+            {
+                Id = Doacao.Id,
+                Categoria = CategoriaModelParaDTO(Doacao.Categoria),
+                Entidade = EntidadeModelParaDTO(Doacao.Entidade)
+            };
 
-        //    aplicacao.Inserir(entidade);
+            aplicacao.Inserir(doacao);
 
-        //    return RedirectToAction("Index", "Voluntario");
-        //}
+            return RedirectToAction("Index", "Voluntario");
+        }
 
         public ActionResult Doar()
         {
+            string strconexao = ConfigurationManager.ConnectionStrings["conexao"].ToString();
+
+            ICategoriaRepositorio repositorio = new CategoriaRepositorio(strconexao);
+            CategoriaAplicacao aplicacao = new CategoriaAplicacao(repositorio);
+
+            List<CategoriaDTO> categorias = aplicacao.SelecionarTodos();
+
+            ViewBag.Categorias = categorias;
+
             return View("Doar");
         }
 
@@ -58,6 +76,30 @@ namespace ProjetoAssistencial.Cliente.Controllers
 
             return null;
             //return View("Doar");
+        }
+
+        [NonAction]
+        public static CategoriaDTO CategoriaModelParaDTO(Categoria categoria)
+        {
+            return new CategoriaDTO()
+            {
+                Id = categoria.Id,
+                Descricao = categoria.Descricao
+            };
+        }
+
+        [NonAction]
+        public static EntidadeDTO EntidadeModelParaDTO(Entidade entidade)
+        {
+            return new EntidadeDTO()
+            {
+                Id = entidade.Id,
+                Cidade = entidade.Cidade,
+                Nome = entidade.Nome,
+                Usuario = entidade.Usuario,
+                Senha = entidade.Senha,
+                Liberado = entidade.Liberado
+            };
         }
 
     }

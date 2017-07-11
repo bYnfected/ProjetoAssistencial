@@ -14,7 +14,7 @@ namespace ProjetoAssistencial.Repositorio
 
         public CategoriaRepositorio(string strConexao)
         {
-            stringConexao = strConexao; // @" ";
+            stringConexao = strConexao; 
         }
 
         public Guid Alterar(Categoria categoria)
@@ -173,7 +173,6 @@ namespace ProjetoAssistencial.Repositorio
 
             return listaCategorias;
         }
-
 
     }
 

@@ -8,9 +8,9 @@ namespace ProjetoAssistencial.Aplicacao.DTO
 {
     public class AcaoDTO : Base
     {
-        public Guid IdEntidade { get; set; }
+        public Guid Entidade { get; set; }
 
-        public Guid IdCategoria { get; set; }
+        public Guid Categoria { get; set; }
 
         public String Descricao { get; set; }
 
