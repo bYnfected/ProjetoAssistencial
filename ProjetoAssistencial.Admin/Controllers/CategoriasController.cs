@@ -83,5 +83,17 @@ namespace ProjetoAssistencial.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Excluir(Guid id)
+        {
+            string strconexao = ConfigurationManager.ConnectionStrings["conexao"].ToString();
+
+            ICategoriaRepositorio repositorio = new CategoriaRepositorio(strconexao);
+            CategoriaAplicacao aplicacao = new CategoriaAplicacao(repositorio);
+
+            aplicacao.Excluir(id);
+
+            return RedirectToAction("Index");
+        }
     }
 }
