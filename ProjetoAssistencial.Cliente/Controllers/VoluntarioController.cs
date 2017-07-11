@@ -17,9 +17,9 @@ namespace ProjetoAssistencial.Cliente.Controllers
         // GET: Voluntario
         public ActionResult Index()
         {
-            List<Acao> Acoes = MockFactory.MockFactory.GerarListaAcoes(10);
+            //List<Acao> Acoes = MockFactory.MockFactory.GerarListaAcoes(10);
 
-            ViewBag.Acoes = Acoes;
+            //ViewBag.Acoes = Acoes;
 
 
             ////////////////////////////
@@ -45,11 +45,15 @@ namespace ProjetoAssistencial.Cliente.Controllers
             IDoacaoRepositorio repositorio = new DoacaoRepositorio(strconexao);
             DoacaoAplicacao aplicacao = new DoacaoAplicacao(repositorio);
 
+            VoluntarioDTO voluntario = VoluntarioModelParaDTO(Doacao.Voluntario);
+            voluntario.Id = Guid.Parse(Session["idUsuario"].ToString());
+
             var doacao = new DoacaoDTO()
             {
                 Id = Doacao.Id,
                 Categoria = CategoriaModelParaDTO(Doacao.Categoria),
-                Entidade = EntidadeModelParaDTO(Doacao.Entidade)
+                Entidade = EntidadeModelParaDTO(Doacao.Entidade),
+                Voluntario = voluntario
             };
 
             aplicacao.Inserir(doacao);
@@ -99,6 +103,19 @@ namespace ProjetoAssistencial.Cliente.Controllers
                 Usuario = entidade.Usuario,
                 Senha = entidade.Senha,
                 Liberado = entidade.Liberado
+            };
+        }
+
+        [NonAction]
+        public static VoluntarioDTO VoluntarioModelParaDTO(Voluntario entidade)
+        {
+            return new VoluntarioDTO()
+            {
+                Id = entidade.Id,
+                Cidade = entidade.Cidade,
+                Nome = entidade.Nome,
+                Usuario = entidade.Usuario,
+                Senha = entidade.Senha
             };
         }
 

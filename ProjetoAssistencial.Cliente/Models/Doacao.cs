@@ -14,6 +14,8 @@ namespace ProjetoAssistencial.Cliente.Models
 
         public Categoria Categoria { get; set; }
 
+        public Voluntario Voluntario { get; set; }
+
         public string Descricao { get; set; }
             
     }

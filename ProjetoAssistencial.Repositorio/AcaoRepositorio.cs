@@ -1,25 +1,23 @@
-﻿using ProjetoAssistencial.Dominio.Repositorio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjetoAssistencial.Dominio.Entidade;
+﻿using   System;
 using System.Data.SqlClient;
+using ProjetoAssistencial.Dominio.Entidade;
+using ProjetoAssistencial.Dominio.Repositorio;
+using System.Collections.Generic;
 
 namespace ProjetoAssistencial.Repositorio
 {
-    public class VoluntarioRepositorio : IVoluntarioRepositorio
+
+    public class AcaoRepositorio: IAcaoRepositorio
     {
 
         private string stringConexao;
 
-        public VoluntarioRepositorio(string strConexao)
+        public AcaoRepositorio(string strConexao)
         {
-            stringConexao = strConexao;
+            stringConexao = strConexao; // @" ";
         }
 
-        public Guid Alterar(Voluntario voluntario)
+        public Guid Alterar(Acao Acao)
         {
             using (SqlConnection conexao = new SqlConnection(stringConexao))
             {
@@ -33,10 +31,13 @@ namespace ProjetoAssistencial.Repositorio
                         comando.Connection = conexao;
 
                         comando.Transaction = trans;
-                        // Alterar comando SQL, verificar como fica categorias.
-                        comando.CommandText = "UPDATE Voluntario SET Nome = @Nome, Cidade = @Cidade,  WHERE Id = @Id";
 
-                        comando.Parameters.AddWithValue("Id", voluntario.Id);
+                        comando.CommandText = "UPDATE Acao SET Descricao = @Descricao, IdCategoria = @IdCategoria, IdEntidade = @IdEntidade WHERE Id = @Id ";
+
+                        comando.Parameters.AddWithValue("Id", Acao.Id);
+                        comando.Parameters.AddWithValue("Descricao", Acao.Descricao);
+                        comando.Parameters.AddWithValue("IdCategoria", Acao.Categoria.Id);
+                        comando.Parameters.AddWithValue("IdEntidade", Acao.Entidade.Id);
 
                         comando.ExecuteNonQuery();
 
@@ -47,9 +48,9 @@ namespace ProjetoAssistencial.Repositorio
                         trans.Rollback();
                     }
                 }
-            }
 
-            return voluntario.Id;
+            }
+            return Acao.Id;
         }
 
         public void Excluir(Guid id)
@@ -66,8 +67,8 @@ namespace ProjetoAssistencial.Repositorio
                         comando.Connection = conexao;
 
                         comando.Transaction = trans;
-                        // Deletar também a lista de categorias na tabela VoluntarioCategoria?
-                        comando.CommandText = "DELETE FROM Voluntario WHERE Id = @Id ";
+
+                        comando.CommandText = "DELETE FROM Acao WHERE Id = @Id ";
 
                         comando.Parameters.AddWithValue("Id", id);
 
@@ -83,7 +84,7 @@ namespace ProjetoAssistencial.Repositorio
             }
         }
 
-        public Guid Inserir(Voluntario voluntario)
+        public Guid Inserir(Acao Acao)
         {
             using (SqlConnection conexao = new SqlConnection(stringConexao))
             {
@@ -95,13 +96,13 @@ namespace ProjetoAssistencial.Repositorio
                         SqlCommand comando = new SqlCommand();
                         comando.Connection = conexao;
                         comando.Transaction = trans;
-                        // Verificar como fica a lista de categorias
-                        comando.CommandText = "INSERT INTO Voluntario (Id, Cidade, Usuario, Senha) VALUES(@Id, @Cidade, @Usuario, @Senha)";
 
-                        comando.Parameters.AddWithValue("Id", voluntario.Id);
-                        comando.Parameters.AddWithValue("Cidade", voluntario.Cidade);
-                        comando.Parameters.AddWithValue("Usuario", voluntario.Usuario);
-                        comando.Parameters.AddWithValue("Senha", voluntario.Senha);
+                        comando.CommandText = "INSERT INTO Acao (Id, Descricao, IdCategoria, IdEntidade) VALUES(@Id, @Descricao, @IdCategoria, @IdEntidade)";
+
+                        comando.Parameters.AddWithValue("Id", Acao.Id);
+                        comando.Parameters.AddWithValue("Descricao", Acao.Descricao);
+                        comando.Parameters.AddWithValue("IdCategoria", Acao.Categoria.Id);
+                        comando.Parameters.AddWithValue("IdEntidade", Acao.Entidade.Id);
 
                         comando.ExecuteNonQuery();
 
@@ -113,12 +114,12 @@ namespace ProjetoAssistencial.Repositorio
                     }
                 }
             }
-            return voluntario.Id;
+            return Acao.Id;
         }
 
-        public Voluntario Selecionar(Guid id)
+        public Acao Selecionar(Guid id)
         {
-            Voluntario voluntario = null;
+            Acao acao = null;
 
             using (SqlConnection conexao = new SqlConnection(stringConexao))
             {
@@ -127,8 +128,8 @@ namespace ProjetoAssistencial.Repositorio
                 SqlCommand comando = new SqlCommand();
 
                 comando.Connection = conexao;
-                // Verificar lista de categorias
-                comando.CommandText = "SELECT Id, Cidade, Usuario, Senha FROM Voluntario WHERE id = @id";
+
+                comando.CommandText = "SELECT Id, Descricao, IdCategoria, IdEntidade FROM Acao WHERE id = @id";
 
                 comando.Parameters.AddWithValue("id", id);
 
@@ -136,21 +137,21 @@ namespace ProjetoAssistencial.Repositorio
 
                 while (leitor.Read())
                 {
-                    voluntario = new Voluntario()
+                    acao = new Acao()
                     {
                         Id = Guid.Parse(leitor["Id"].ToString()),
-                        Cidade = leitor["Cidade"].ToString(),
-                        Usuario = leitor["Usuario"].ToString(),
-                        Senha = leitor["Senha"].ToString()
+                        Descricao = leitor["Descricao"].ToString(),
+                        Categoria = (new CategoriaRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdCategoria"].ToString()))),
+                        Entidade = (new EntidadeRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdEntidade"].ToString())))
                     };
                 }
             }
-            return voluntario;
+            return acao;
         }
 
-        public List<Voluntario> SelecionarTodos()
+        public List<Acao> SelecionarTodos()
         {
-            List<Voluntario> listaVoluntarios = new List<Voluntario>();
+            List<Acao> listaAcoes = new List<Acao>();
 
             using (SqlConnection conexao = new SqlConnection(stringConexao))
             {
@@ -159,27 +160,28 @@ namespace ProjetoAssistencial.Repositorio
                 SqlCommand comando = new SqlCommand();
 
                 comando.Connection = conexao;
-                // verificar lista categorias
-                comando.CommandText = "SELECT Id, Cidade, Usuario, Senha FROM Voluntario";
+
+                comando.CommandText = "SELECT Id, Descricao, IdCategoria, IdEntidade FROM Acao";
 
                 SqlDataReader leitor = comando.ExecuteReader();
 
                 while (leitor.Read())
                 {
-                    Voluntario voluntario = new Voluntario()
+                    Acao Acao = new Acao()
                     {
                         Id = Guid.Parse(leitor["Id"].ToString()),
-                        Cidade = leitor["Cidade"].ToString(),
-                        Usuario = leitor["Usuario"].ToString(),
-                        Senha = leitor["Senha"].ToString()
+                        Descricao = leitor["Descricao"].ToString(),
+                        Categoria = (new CategoriaRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdCategoria"].ToString()))),
+                        Entidade = (new EntidadeRepositorio(stringConexao).Selecionar(Guid.Parse(leitor["IdEntidade"].ToString())))
                     };
 
-                    listaVoluntarios.Add(voluntario);
+                    listaAcoes.Add(Acao);
                 }
             }
 
-            return listaVoluntarios;
+            return listaAcoes;
         }
 
     }
+
 }

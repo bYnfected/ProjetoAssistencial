@@ -8,25 +8,25 @@ namespace ProjetoAssistencial.Cliente.MockFactory
 {
     public class MockFactory
     {
-        public static List<Acao> GerarListaAcoes(int qtd)
-        {
-            List<Acao> acoes = new List<Acao>();
+        //public static List<Acao> GerarListaAcoes(int qtd)
+        //{
+        //    List<Acao> acoes = new List<Acao>();
 
-            for (int i = 0; i < qtd; i++)
-            {
-                acoes.Add(new Acao()
-                {
-                    Id = Guid.NewGuid(),
-                    IdEntidade = Guid.NewGuid(),
-                    IdCategoria = Guid.NewGuid(),
-                    Voluntarios = new List<Voluntario>(),
-                    Descricao = "Descricao da Ação",
-                    DataHora = DateTime.Now
+        //    for (int i = 0; i < qtd; i++)
+        //    {
+        //        acoes.Add(new Acao()
+        //        {
+        //            Id = Guid.NewGuid(),
+        //            IdEntidade = Guid.NewGuid(),
+        //            IdCategoria = Guid.NewGuid(),
+        //            Voluntarios = new List<Voluntario>(),
+        //            Descricao = "Descricao da Ação",
+        //            DataHora = DateTime.Now
             
-                });
-            }
-            return acoes;
-        }
+        //        });
+        //    }
+        //    return acoes;
+        //}
 
         //public static List<Doacao> GerarListaDoacoes(int qtd)
         //{

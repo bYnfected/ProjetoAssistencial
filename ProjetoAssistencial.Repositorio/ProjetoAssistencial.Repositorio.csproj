@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcaoVoluntarioRepositorio.cs" />
+    <Compile Include="AcaoRepositorio.cs" />
     <Compile Include="EntidadeRepositorio.cs" />
     <Compile Include="DoacaoRepositorio.cs" />
     <Compile Include="CategoriaRepositorio.cs" />

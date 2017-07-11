@@ -15,8 +15,8 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
             return new Acao()
             {
                 Id = acao.Id,
-                IdEntidade = acao.IdEntidade,
-                IdCategoria = acao.IdCategoria,
+                Entidade = EntidadeAdapter.ParaDomain(acao.Entidade),
+                Categoria = CategoriaAdapter.ParaDomain(acao.Categoria),
                 Descricao = acao.Descricao,
                 DataHora = acao.DataHora,
                 Voluntarios = VoluntarioAdapter.ListParaDomain(acao.Voluntarios)
@@ -28,8 +28,8 @@ namespace ProjetoAssistencial.Aplicacao.Adapter
             return new AcaoDTO()
             {
                 Id = acao.Id,
-                IdEntidade = acao.IdEntidade,
-                IdCategoria = acao.IdCategoria,
+                Entidade = EntidadeAdapter.ParaDTO(acao.Entidade),
+                Categoria = CategoriaAdapter.ParaDTO(acao.Categoria),
                 Descricao = acao.Descricao,
                 DataHora = acao.DataHora,
                 Voluntarios = VoluntarioAdapter.ListParaDTO(acao.Voluntarios)

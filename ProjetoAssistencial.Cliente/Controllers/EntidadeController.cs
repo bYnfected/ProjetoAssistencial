@@ -21,9 +21,9 @@ namespace ProjetoAssistencial.Cliente.Controllers
 
             //ViewBag.Doacoes = Doacoes;
 
-            List<Acao> Acoes = MockFactory.MockFactory.GerarListaAcoes(10);
+            //List<Acao> Acoes = MockFactory.MockFactory.GerarListaAcoes(10);
 
-            ViewBag.Acoes = Acoes;
+            //ViewBag.Acoes = Acoes;
 
             return View();
         }
@@ -36,16 +36,18 @@ namespace ProjetoAssistencial.Cliente.Controllers
             IAcaoRepositorio repositorio = new AcaoRepositorio(strconexao);
             AcaoAplicacao aplicacao = new AcaoAplicacao(repositorio);
 
+            EntidadeDTO entidade = EntidadeModelParaDTO(Acao.Entidade);
+            entidade.Id = Guid.Parse(Session["idUsuario"].ToString());
+
             var acao = new AcaoDTO()
             {
                 Id = Acao.Id,
                 Categoria = CategoriaModelParaDTO(Acao.Categoria),
+                Entidade = entidade,
                 Descricao = Acao.Descricao
             };
 
-            aplicacao.Inserir(doacao);
-
-            return RedirectToAction("Index", "Voluntario");
+            aplicacao.Inserir(acao);
 
             return RedirectToAction("Index", "Entidade");
         }
@@ -64,6 +66,21 @@ namespace ProjetoAssistencial.Cliente.Controllers
                 Descricao = categoria.Descricao
             };
         }
+
+        [NonAction]
+        public static EntidadeDTO EntidadeModelParaDTO(Entidade entidade)
+        {
+            return new EntidadeDTO()
+            {
+                Id = entidade.Id,
+                Cidade = entidade.Cidade,
+                Nome = entidade.Nome,
+                Usuario = entidade.Usuario,
+                Senha = entidade.Senha,
+                Liberado = entidade.Liberado
+            };
+        }
+
 
     }
 }
